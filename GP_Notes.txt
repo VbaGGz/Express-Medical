@@ -1,0 +1,132 @@
+updates to pages:
+	
+
+--------------------------------------------------------------------------------------------
+	Admin - 
+
+		home - 
+			reformat the news articles?
+			real news articles?
+
+		my info - 
+			reformat the output display
+			add password lock to view sensitive information
+
+		my benefits - 
+			reformat the output display
+			move information to my info?
+
+		my taxes - 
+			change "my taxes" to "my finances"
+			reformat the output display
+
+		add employee - 
+			move the confirmation of success to top or have a popup?
+			add privilege level option.
+
+		edit employee - 
+			reformat the submit bar after a successful search has been done
+			check the success confirmation, it stays forever.
+			add privilege level option.
+			add pay option.
+
+		delete employee - 
+			check the success confirmation, it stays forever.
+
+		contact -
+			add a back button? instead of having to reclick the navbar.
+
+		navbar - 
+			** logout isnt inside the navbar.
+			change "my taxes" to "my finances"
+
+
+--------------------------------------------------------------------------------------------
+
+	HR - 
+
+		home - 
+			reformat the news articles?
+			real news articles?
+
+		my info - 
+			reformat the output display
+			add password lock to view sensitive information
+
+		my benefits - 
+			reformat the output display
+			move information to my info?
+
+		my taxes - 
+			change "my taxes" to "my finances"
+			reformat the output display
+
+		add employee - 
+			move the confirmation of success to top or have a popup?
+
+		edit employee - 
+			reformat the submit bar after a successful search has been done
+			check the success confirmation, it stays forever.
+
+		contact -
+			add a back button? instead of having to reclick the navbar.
+
+		navbar - 
+			navbar extends too far
+			
+
+--------------------------------------------------------------------------------------------	
+
+	Employee - 
+
+		home - 
+			reformat the news articles?
+
+		my info - 
+			reformat the output display
+			add password lock to view sensitive information
+
+		my benefits - 
+			reformat the output display
+			move information to my info
+			
+		my taxes - 
+			change "my taxes" to "my finances"
+			reformat the output display
+
+		contact -
+			add a back button? instead of having to reclick the narbar.
+
+		navbar - 
+			change "my taxes" to "my finances"
+			navbar extends really far down
+			
+
+--------------------------------------------------------------------------------------------	
+
+
+Populate the database.
+
+add upload images option?
+
+add edit profile information for employees? 
+	information that shows under the contact tab only
+
+more security
+	- time out if not input detected
+	- security word or password for accessing sensible data
+
+when new users log in for the first time prompt them to enter all of their benefit information
+
+******* VIN ********
+
+addBenefits page under HR is almost working 100% .. gotta look into why ids arent being read in.
+	should we just auto create a blank entry into healthcare when adding an employee
+		- aka do a sql command to insert nothing into healthcare so we have the entry with id
+		- right now i have the addBenefits page just doing an Update command by id
+
+
+	
+		
+		
+		

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Brogrammer's Web App</title>
+        <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./CSS/homepage.css">
+    </head>
+    <body>
+        <div class="container-fluid full-page">
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
+                <button class="tablinks" onclick="openTab(event, 'My Info')">My Info</button>
+                <button class="tablinks" onclick="openTab(event, 'My Benefits')">My Benefits</button>
+                <button class="tablinks" onclick="openTab(event, 'My Taxes')">My Taxes</button>
+                <button class="tablinks" onclick="openTab(event, 'Contact')">Contact</button>
+                <button class="tablinks" onclick="logOut()">Log Out</button>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="./Images/profilepic.JPG" class="profile-pic">
+                </div>
+                <div class="col-sm-10">
+                    <h1>Welcome Back, Nicholas</h1>
+                    <h5>Employee at Blah Hospital</h5>
+                    <p id="demo"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div id="Home" class="tabcontent">
+                    <h3>Home</h3>
+                    <p>Hi, I'm Paul.</p>
+                </div>
+
+                <div id="My Info" class="tabcontent">
+                    <h3>My Info:</h3>
+                </div>
+
+                <div id="My Benefits" class="tabcontent">
+                    <h3>My Benefits:</h3>
+                </div>
+
+                <div id="My Taxes" class="tabcontent">
+                    <h3>My Taxes:</h3>
+                </div>
+
+                <div id="Contact" class="tabcontent">
+                    <h3>Contact:</h3>
+                </div>
+
+                <div id="Log Out" class="tabcontent">
+                    <h3>Log Out:</h3>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        
+        <script>
+        function openTab(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        function logOut() {
+            var txt;
+            if (confirm("Are you sure you want to logout?")) {
+                window.location.href = './index.php';
+            } 
+            else {
+                txt = "You pressed Cancel!";
+            }
+            document.getElementById("demo").innerHTML = txt;
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+        </script>
+    </body>
+</html>

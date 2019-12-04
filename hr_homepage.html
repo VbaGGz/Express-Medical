@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Brogrammer's Web App</title>
+        <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./CSS/homepage.css">
+    </head>
+    <body>
+        <div class="container-fluid full-page">
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
+                <button class="tablinks" onclick="openTab(event, 'My Info')">My Info</button>
+                <button class="tablinks" onclick="openTab(event, 'My Benefits')">My Benefits</button>
+                <button class="tablinks" onclick="openTab(event, 'My Taxes')">My Taxes</button>
+                <button class="tablinks" onclick="openTab(event, 'Add Employee')">Add Employee</button>
+                <button class="tablinks" onclick="openTab(event, 'Edit Employee')">Edit Employee</button>
+                <button class="tablinks" onclick="openTab(event, 'Delete Employee')">Delete Employee</button>
+                <button class="tablinks" onclick="openTab(event, 'Contact')">Contact</button>
+                <button class="tablinks" onclick="logOut()">Log Out</button>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="./Images/profilepic.JPG" class="profile-pic">
+                </div>
+                <div class="col-sm-10 ">
+                    <h1>Welcome Back, Nicholas</h1>
+                    <h5>Employee at Blah Hospital</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div id="Home" class="tabcontent">
+                    <h3>Home</h3>
+                    <p>Hi, I'm Paul.</p>
+                    <div class="row news-row">
+                        <div class="col-md-6">
+                            <h3>Socioeconomic Status Affects Which Kids Survive 
+                                Cancer</h3>
+                            <p>Socioeconomic factors play a big role in survival
+                                 rates...</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h3>A Lifeline for Rural Hospitals</h3>
+                            <p>A move by Georgia lawmakers to aid hospitals
+                                 on the brink is already paying off...</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h3>Four-legged infection fighter hits the 
+                                road to detect C. difficile</h3>
+                            <p>Vancouver Coastal Health's four-legged 
+                                infection fighter is taking a road-trip
+                                 to showcase his C. difficile detection 
+                                 abilities...</p>
+                        </div>
+                    </div>
+                    <div class="row news-row">
+                        <div class="col-md-4">
+                            <h3>Lyft and Uber for Patient Transportation</h3>
+                            <p>Health care providers are exploring 
+                                ride-hailing services for nonemergency 
+                                transportation...</p>
+                        </div>
+                        <div class="col">
+                            Col 2.2
+                        </div>
+                        <div class="col">
+                            Col 2.3
+                        </div>
+                    </div>
+                    <div class="row news-row">
+                        <div class="col">
+                            Col 3.1
+                        </div>
+                        <div class="col">
+                            Col 3.2
+                        </div>
+                        <div class="col">
+                            Col 3.3
+                        </div>
+                    </div>
+                </div>
+
+                <div id="My Info" class="tabcontent">
+                    <h3>My Info:</h3>
+					<p> testing</p>
+					<?php
+						$sql = "SELECT `ID` FROM `Employee_Records`";
+						$result = $dbc->query($sql);
+						
+						if ($result->num_rows > 0) {
+							// output data of each row
+							while($row = $result->fetch_assoc()) {
+								echo "ID: " . $row["ID"] . "<br>";
+							}
+						} else {
+							echo "0 results";
+						}
+					?>
+                </div>
+
+                <div id="My Benefits" class="tabcontent">
+                    <h3>My Benefits:</h3>
+                </div>
+
+                <div id="My Taxes" class="tabcontent">
+                    <h3>My Taxes:</h3>
+                </div>
+                
+                <div id="Add Employee" class="tabcontent">
+                    <h2>Add Employee:</h2>
+
+                    <form action="insert.php" method="post">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Username">Username</label>
+                                <input type="text" class="form-control" id="Username" name="Username" maxlength="25">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Password">Password</label>
+                                <input type="password" class="form-control" id="Password" name="Password" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="First_Name">First Name</label>
+                                <input type="text" class="form-control" id="First_Name" name="First_Name" maxlength="25">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Last_Name">Last Name</label>
+                                <input type="text" class="form-control" id="Last_Name" name="Last_Name" maxlength="25">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="DOB">Date of Birth</label>
+                                <input type="date" class="form-control" id="DOB" name="DOB">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="Email">Email</label>
+                                <input type="email" class="form-control" id="Email" name="Email" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Address">Address</label>
+                            <input type="text" class="form-control" id="Address" name="Address" placeholder="1234 Main St" maxlength="50">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="City">City</label>
+                                <input type="text" class="form-control" id="City" name="City" maxlength="20">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="State">State</label>
+                                <select id="State" class="form-control" name="State">
+                                    <option selected>Choose...</option>
+                                    <option>AL</option>
+                                    <option>AK</option>
+                                    <option>AZ</option>
+                                    <option>AR</option>
+                                    <option>CA</option>
+                                    <option>CO</option>
+                                    <option>CT</option>
+                                    <option>DE</option>
+                                    <option>DC</option>
+                                    <option>FL</option>
+                                    <option>GA</option>
+                                    <option>HI</option>
+                                    <option>ID</option>
+                                    <option>IL</option>
+                                    <option>IN</option>
+                                    <option>IA</option>
+                                    <option>KS</option>
+                                    <option>KY</option>
+                                    <option>LA</option>
+                                    <option>ME</option>
+                                    <option>MD</option>
+                                    <option>MA</option>
+                                    <option>MI</option>
+                                    <option>MN</option>
+                                    <option>MS</option>
+                                    <option>MO</option>
+                                    <option>MT</option>
+                                    <option>NE</option>
+                                    <option>NV</option>
+                                    <option>NH</option>
+                                    <option>NJ</option>
+                                    <option>NM</option>
+                                    <option>NY</option>
+                                    <option>NC</option>
+                                    <option>ND</option>
+                                    <option>OH</option>
+                                    <option>OK</option>
+                                    <option>OR</option>
+                                    <option>PA</option>
+                                    <option>RI</option>
+                                    <option>SC</option>
+                                    <option>SD</option>
+                                    <option>TN</option>
+                                    <option>TX</option>
+                                    <option>UT</option>
+                                    <option>VT</option>
+                                    <option>VA</option>
+                                    <option>WA</option>
+                                    <option>WV</option>
+                                    <option>WI</option>
+                                    <option>WY</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="Zip">Zip</label>
+                                <input type="number" class="form-control" id="Zip" name="Zip" min="00000" max="99999">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="SSN">Social Security Number</label>
+                                <input type="password" class="form-control" id="SSN" name="SSN" maxlength="9">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Position">Position in Company</label>
+                                <input type="text" class="form-control" id="Position" name="Position" maxlength="25">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Phone_Number">Phone Number</label>
+                                <input type="number" class="form-control" id="Phone_Number" name="Phone_Number" min="00000000000" max="99999999999">
+                            </div>
+                        </div>
+                        
+                        <input type="submit" value="Submit">
+                    </form>
+                    <div style = "font-size:18px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+                </div>
+                
+                <div id="Edit Employee" class="tabcontent">
+                    <h3>Edit Employee:</h3>
+                </div>
+
+                <div id="Delete Employee" class="tabcontent">
+                    <h3>Delete Employee:</h3>
+                </div>
+
+                <div id="Contact" class="tabcontent">
+                    <h3>Contact:</h3>
+                </div>
+
+                <div id="Log Out" class="tabcontent">
+                    <h3>Log Out:</h3>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+        function openTab(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        function logOut() {
+            if (confirm("Are you sure you want to logout?")) {
+                window.location.href = './index.php';
+            } 
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+        </script>
+    </body>
+</html>
