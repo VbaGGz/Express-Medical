@@ -18,7 +18,7 @@ if (isset($_POST['update-submit'])) {
 	  $Phone_Number = $_POST['Phone_Number'];
 	  $Gross_Pay = $_POST['Gross_Pay'];
 
-        $sql = " UPDATE `Employee_Records` SET  `Username` = '$Username',`First_Name` = '$First_Name', `Last_Name` = '$Last_Name', `DOB` = '$DOB', `Email` = '$Email', `Address` = '$Address', `City` = '$City', `State` = '$State', `Zip_Code` = '$Zip_Code', `SSN` = '$SSN', `Position` = '$Position', `Phone_Number` = '$Phone_Number' WHERE ID  = '$ID' ";
+        $sql = " UPDATE `Employee_Records` SET  `Username` = '$Username',`First_Name` = '$First_Name', `Last_Name` = '$Last_Name', `DOB` = '$DOB', `Email` = '$Email', `Address` = '$Address', `City` = '$City', `State` = '$State', `Zip_Code` = '$Zip_Code', `Position` = '$Position', `Phone_Number` = '$Phone_Number' WHERE ID  = '$ID' ";
         $sql2 = " UPDATE `Employee_Finance` SET  `Gross_Pay` = '$Gross_Pay' WHERE ID  = '$ID'";
        			 if (mysqli_query($dbc,$sql))
         			{

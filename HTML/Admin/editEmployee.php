@@ -194,7 +194,7 @@
         </form>
         </div>
         </div>
-        <div style = "font-size:18px; color:#cc0000; margin-top:10px"><?php $error= $_GET['error']; echo $error; ?></div>
+        <div style = "font-size:18px; color:#cc0000; margin-top:10px"><?php $error= $_GET['error'] ?? ''; echo $error; ?></div>
 
         <script type="text/javascript">
             document.getElementById("Home").onclick = function () {
