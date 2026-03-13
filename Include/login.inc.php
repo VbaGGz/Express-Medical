@@ -67,7 +67,13 @@ $sql = "SELECT * FROM `Employee_Records` WHERE `Username` = '$Username'";
 		  
 		  
           // Now the user is registered as logged in and we can now take them back to the front page! :)
-          header("Location: ../HTML/Employee/homepage.php");
+          if ($_SESSION['P_Level'] == 3) {
+            header("Location: ../HTML/Admin/homepage.php");
+          } else if ($_SESSION['P_Level'] == 2) {
+            header("Location: ../HTML/HR/homepage.php");
+          } else {
+            header("Location: ../HTML/Employee/homepage.php");
+          }
           exit();
         }
       }

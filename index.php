@@ -1,5 +1,5 @@
-<?php 
-$error = $_GET['error'];
+<?php
+$error = $_GET['error'] ?? '';
  ?>
 <html>
     <head>
@@ -19,7 +19,7 @@ $error = $_GET['error'];
                 <div class="col-lg-3 col-sm-4 form-box">
 				<form action="Include/login.inc.php" method="post">
 					<div class="col">
-                        <div class="row justify-content-center>">
+                        <div class="row justify-content-center">
                             <img src="./Images/randomlogo.png" alt="Logo" class="logo">
                         </div>
                         <div class="row justify-content-center">

@@ -77,7 +77,7 @@
                         </div>
                         <div class="form-group">
                             <label for="Address">Address</label>
-                            <input type="text" class="form-control" id="Address" name="Address" value = "<?php echo $row['Username']; ?>" maxlength="50">
+                            <input type="text" class="form-control" id="Address" name="Address" value = "<?php echo $row['Address']; ?>" maxlength="50">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -180,7 +180,7 @@
                            <input type="submit" value="Search" name= adduser-submit>
                     </div>
 			</form>
-                <div style = "font-size:18px; color:#cc0000; margin-top:10px"><?php $error= $_GET['error']; echo $error; ?></div>
+                <div style = "font-size:18px; color:#cc0000; margin-top:10px"><?php $error= $_GET['error'] ?? ''; echo $error; ?></div>
 			</div>
         </div>
 

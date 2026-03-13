@@ -85,6 +85,6 @@ if (isset($_POST['adduser-submit'])) {
 }
 else
 {
-	header("Location ../index.php");
+	header("Location: ../index.php");
 	exit();
 }

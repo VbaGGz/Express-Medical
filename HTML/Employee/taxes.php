@@ -184,7 +184,7 @@
                                 ?>
                             </tr>
                         </tbody>
-                    <table>                                
+                    </table>
                 </div>
             </div><a href="#" onclick="printData()">Print</a>
         </div>

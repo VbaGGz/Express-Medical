@@ -17,7 +17,7 @@ if (isset($_POST['update-submit'])) {
 	  $Position = $_POST['Position'];
 	  $Phone_Number = $_POST['Phone_Number'];
 
-        $sql = " UPDATE `Employee_Records` SET  `First_Name` = '$First_Name', `Last_Name` = '$Last_Name', `DOB` = '$DOB', `Email` = '$Email', `Address` = '$Address', `City` = '$City', `State` = '$State', `Zip_Code` = '$Zip_Code', `SSN` = '$SSN', `Position` = '$Position', `Phone_Number` = '$Phone_Number' WHERE ID  = '$ID' ";
+        $sql = " UPDATE `Employee_Records` SET  `First_Name` = '$First_Name', `Last_Name` = '$Last_Name', `DOB` = '$DOB', `Email` = '$Email', `Address` = '$Address', `City` = '$City', `State` = '$State', `Zip_Code` = '$Zip_Code', `Position` = '$Position', `Phone_Number` = '$Phone_Number' WHERE ID  = '$ID' ";
 		
 	  
         

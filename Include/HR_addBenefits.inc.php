@@ -29,6 +29,6 @@ if (isset($_POST['addBenefits-submit'])) {
 	  
 	  else
 	  {
-	  	header("Location ../index.php");
+	  	header("Location: ../index.php");
 	    exit();
 	  }
