@@ -107,7 +107,7 @@ body {
 }
 
 /* Profile header strip */
-.row:first-of-type {
+.row:has(.profile-pic) {
     background: #ffffff;
     border-bottom: 1px solid #e2e8f0;
     padding: 16px 24px;
