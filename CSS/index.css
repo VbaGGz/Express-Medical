@@ -1,91 +1,154 @@
-body {
-    height: 100%;
-    width: 100%;
-    position: absolute;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.full-page {
-    height: 100%;
-    background-image: linear-gradient(to bottom, rgba(238, 238, 238, 0.85) 0%,rgba(238, 238, 238, 0.85) 100%), url("../Images/background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-size: 100% 100%;
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f4c75 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-fluid.full-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.row.justify-content-center.align-items-center.h-100 {
+    width: 100%;
+    justify-content: center !important;
 }
 
 .form-box {
-    background: (255, 255, 255, 1);
-    background-image: linear-gradient(#4172b0, #18b83c);
-    color: white;
-    height: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 }
 
-h1 {
-    margin-top: 50px;
-    text-align: center;
-}
-
-h6 {
-    color: red;
-}
-
-.error {
-    margin-bottom: 0px;
-}
-
-input::placeholder {
-    color: white;
-}
-
-#inputUsername, #inputPassword {
+.logo {
+    height: 90px;
+    width: 90px;
     display: block;
-    align-items: center;
-    width: 60%;
-    margin-top: 1%;
-    background: none;
-    border: none;
-    border-bottom: 2px solid white;
-    border-radius: 0px;
-    color: white;
-}
-
-#inputUsername {
-    margin-top: 7%;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
 .login-text {
-    padding-top: 3%;
-    margin-top: 0;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.error {
+    min-height: 24px;
+    margin-bottom: 8px;
+}
+
+h6 {
+    color: #f87171;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.row.justify-content-center {
+    margin-bottom: 14px;
+    width: 100%;
+}
+
+label.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+}
+
+#inputUsername,
+#inputPassword {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 13px 16px;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+#inputUsername:focus,
+#inputPassword:focus {
+    border-color: #38bdf8;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+#inputUsername::placeholder,
+#inputPassword::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+#inputUsername::-ms-input-placeholder,
+#inputPassword::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.45);
 }
 
 .login-button {
-    background-color: white;
-    color: black;
-    border-radius: 20px;
-    width: 40%;
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
     border: none;
-    margin-top: 5%;
-    padding: 1%;
+    border-radius: 10px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.login-button:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+
+.login-button:active {
+    transform: translateY(0);
 }
 
 p {
-    color: black;
-    margin-top: 75px;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 13px;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
-.logo{
-    height: 145px;
-    width: 145px;
-    min-height: 15%;
-    min-width: 15%;
-    display: block;
-    margin:0 auto;
+p:hover {
+    color: rgba(255, 255, 255, 0.7);
 }
-
-#inputUsername::placeholder, #inputPassword::placeholder {
-    color: white;
-    opacity: 1; /* Firefox */
-}
-
-#inputUsername::-ms-input-placeholder, #inputPassword::-ms-input-placeholder { /* Microsoft Edge */
-    color: white;
- }
