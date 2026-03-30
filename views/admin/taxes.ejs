@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../partials/head') %>
+    <title>My Finances</title>
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+</head>
+<body>
+    <div class="container-fluid full-page">
+        <%- include('../partials/nav') %>
+        <%- include('../partials/header') %>
+        <div class="row">
+            <div class="tabcontent">
+                <h5 style="padding-top: 10px;">My Paycheck</h5>
+                <table class="table table-bordered table-active">
+                    <tbody>
+                        <tr>
+                            <td>Express Medical</td>
+                            <td><%= user.First_Name %> <%= user.Last_Name %></td>
+                        </tr>
+                        <tr>
+                            <td>5500 Hylan Blvd</td>
+                            <td><%= user.Address %></td>
+                        </tr>
+                        <tr>
+                            <td>Staten Island, NY, 10306</td>
+                            <td><%= user.City %> <%= user.State %> <%= user.Zip_Code %></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="row" id="ele">
+                    <div class="col-4">
+                        <table class="table table-bordered table-active" id="printTable">
+                            <thead><tr><th class="bg-primary" colspan="2">Payments</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>Regular Pay</td>
+                                    <td><%= benefits.gross_income.toFixed(2) %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-4">
+                        <table class="table table-bordered table-active" id="printTable1">
+                            <thead><tr><th class="bg-primary" colspan="2">Benefits</th></tr></thead>
+                            <tbody>
+                                <% let totalBenefits = 0; %>
+                                <% Object.entries(benefits).forEach(([k, v]) => { %>
+                                    <% if (k !== 'gross_income' && k !== 'taxable_income') { %>
+                                        <% totalBenefits += v; %>
+                                        <tr><td><%= k %></td><td><%= v.toFixed(2) %></td></tr>
+                                    <% } %>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-4">
+                        <table class="table table-bordered table-active" id="printTable2">
+                            <thead><tr><th class="bg-primary" colspan="2">Deductions</th></tr></thead>
+                            <tbody>
+                                <% let totalDeductions = 0; %>
+                                <% Object.entries(finances).forEach(([k, v]) => { %>
+                                    <% if (k !== 'PRETAXbiweeklypay' && k !== 'NETbiweeklypay') { %>
+                                        <% totalDeductions += v; %>
+                                        <tr><td><%= k %></td><td><%= v.toFixed(2) %></td></tr>
+                                    <% } %>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table class="table table-bordered table-active" id="printTable3">
+                    <thead>
+                        <tr class="bg-primary">
+                            <th>Gross Pay</th><th>Benefits</th><th>Deductions</th><th>Net Pay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= benefits.gross_income.toFixed(2) %></td>
+                            <td><%= totalBenefits.toFixed(2) %></td>
+                            <td><%= totalDeductions.toFixed(2) %></td>
+                            <td><%= finances.NETbiweeklypay.toFixed(2) %></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#" onclick="printData()">Print</a>
+            </div>
+        </div>
+    </div>
+    <script>
+    function printData() {
+        var els = ['printTable','printTable1','printTable2','printTable3'].map(id => document.getElementById(id).outerHTML).join('');
+        var w = window.open(''); w.document.write(els); w.print(); w.close();
+    }
+    </script>
+</body>
+</html>

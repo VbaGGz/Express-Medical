@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../partials/head') %>
+    <title>Edit Employee</title>
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+</head>
+<body>
+    <div class="container-fluid full-page">
+        <%- include('../partials/nav') %>
+        <%- include('../partials/header') %>
+        <div class="row">
+            <div class="tabcontent">
+                <h3>Edit Employee:</h3>
+                <% if (employee) { %>
+                <p>ID: <%= employee.ID %></p>
+                <form action="/<%= role %>/edit-employee/update?ID=<%= employee.ID %>" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="Username" value="<%= employee.Username %>" maxlength="25">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" name="First_Name" value="<%= employee.First_Name %>" maxlength="25">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" name="Last_Name" value="<%= employee.Last_Name %>" maxlength="25">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Date of Birth</label>
+                            <input type="date" class="form-control" name="DOB" value="<%= employee.DOB %>">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="Email" value="<%= employee.Email %>" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" name="Address" value="<%= employee.Address %>" maxlength="50">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>City</label>
+                            <input type="text" class="form-control" name="City" value="<%= employee.City %>" maxlength="20">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>State</label>
+                            <select class="form-control" name="State">
+                                <%- include('../partials/states', { selected: employee.State }) %>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Zip</label>
+                            <input type="text" class="form-control" name="Zip" value="<%= employee.Zip_Code %>">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Position</label>
+                            <input type="text" class="form-control" name="Position" value="<%= employee.Position %>" maxlength="25">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Phone Number</label>
+                            <input type="text" class="form-control" name="Phone_Number" value="<%= employee.Phone_Number %>">
+                        </div>
+                        <% if (role === 'admin' && finance) { %>
+                        <div class="form-group col-md-4">
+                            <label>Gross Pay</label>
+                            <input type="number" class="form-control" name="Gross_Pay" value="<%= finance.Gross_Pay %>">
+                        </div>
+                        <% } %>
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </form>
+                <% } else { %>
+                    <% if (typeof employee !== 'undefined' && employee === null && !error) { %>
+                    <p>0 results</p>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+        <div>
+            <form action="/<%= role %>/edit-employee/search" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Please Enter The ID of The User You Would Like To Edit</label>
+                        <input type="text" class="form-control" name="ID" maxlength="25">
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+        <% if (error) { %>
+        <div style="font-size:18px; color:#cc0000; margin-top:10px"><%= error %></div>
+        <% } %>
+    </div>
+</body>
+</html>

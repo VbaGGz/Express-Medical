@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../partials/head') %>
+    <title>My Info</title>
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+</head>
+<body>
+    <div class="container-fluid full-page">
+        <%- include('../partials/nav') %>
+        <%- include('../partials/header') %>
+        <div class="row">
+            <div class="tabcontent">
+                <h3>My Info:</h3>
+                <p>
+                    ID: <%= user.ID %> &nbsp; Username: <%= user.Username %><br>
+                    First Name: <%= user.First_Name %> &nbsp; Last Name: <%= user.Last_Name %><br>
+                    Date of Birth: <%= user.DOB %> &nbsp; Email: <%= user.Email %><br>
+                    Address: <%= user.Address %> &nbsp; City: <%= user.City %><br>
+                    State: <%= user.State %> &nbsp; Zip Code: <%= user.Zip_Code %><br>
+                    Position: <%= user.Position %> &nbsp; Phone Number: <%= user.Phone_Number %><br>
+                </p>
+                <% if (healthcare) { %>
+                <p>
+                    Marital Status: <%= healthcare.Marital_Status %> &nbsp; Children: <%= healthcare.Children %><br>
+                    Healthcare Plan: <%= healthcare.Healthcare_Plan %> &nbsp; Dental Plan: <%= healthcare.Dental %><br>
+                    Optical Plan: <%= healthcare.Optical %> &nbsp; Life Insurance: <%= healthcare.Life_Insurance_Plan %><br>
+                    401k: <%= healthcare['401k'] %><br>
+                </p>
+                <% } else { %>
+                <p>No healthcare information on file.</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<div class="tab">
+<% navItems.forEach(item => { %>
+    <button class="tablinks<%= item.id === currentPage ? ' currentPage' : '' %>" onclick="location.href='<%= item.href %>'"><%= item.label %></button>
+<% }) %>
+    <button class="tablinks" onclick="if(confirm('Are you sure you want to logout?')) location.href='/auth/logout'">Log Out</button>
+</div>

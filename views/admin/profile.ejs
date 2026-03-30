@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../partials/head') %>
+    <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="/css/contact.css">
+</head>
+<body>
+    <div class="container-fluid full-page">
+        <%- include('../partials/nav') %>
+        <%- include('../partials/header') %>
+        <div class="row">
+            <button class="back" onclick="history.back()">Go Back</button>
+            <% if (employee) { %>
+            <div class="col-sm-12">
+                <div class="row justify-content-sm-center">
+                    <img src="/images/Employee_Pictures/<%= employee.ID %>.jpg" class="profile-pic" alt="User Picture"
+                         onerror="this.src='/images/randomlogo1.png'">
+                </div>
+                <div class="row justify-content-sm-center">
+                    <h3><%= employee.First_Name %> <%= employee.Last_Name %></h3>
+                </div>
+                <div class="row justify-content-md-center">
+                    <p><%= employee.Position %> at Express Medical</p>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="row justify-content-md-center">
+                    <h6>Email Address:</h6>
+                    <p>&nbsp;<%= employee.Email %></p>
+                </div>
+                <div class="row justify-content-md-center">
+                    <h6>Telephone Number:</h6>
+                    <p>&nbsp;<%= employee.Phone_Number %></p>
+                </div>
+            </div>
+            <% } else { %>
+            <p>Employee not found.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

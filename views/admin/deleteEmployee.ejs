@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../partials/head') %>
+    <title>Delete Employee</title>
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+</head>
+<body>
+    <div class="container-fluid full-page">
+        <%- include('../partials/nav') %>
+        <%- include('../partials/header') %>
+        <div class="row">
+            <div class="tabcontent">
+                <h3>Delete Employee:</h3>
+                <% if (employee) { %>
+                <p>
+                    ID: <%= employee.ID %><br>
+                    Name: <%= employee.First_Name %> <%= employee.Last_Name %><br>
+                    Position: <%= employee.Position %><br>
+                    Email: <%= employee.Email %><br>
+                </p>
+                <button onclick="if(confirm('Are you sure you want to delete this user?')) location.href='/admin/delete-employee/confirm?ID=<%= employee.ID %>'">Delete User</button>
+                <% } %>
+                <div>
+                    <form action="/admin/delete-employee/search" method="post">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Please Enter The ID of The User You Would Like To Delete</label>
+                                <input type="text" class="form-control" name="ID" maxlength="25">
+                            </div>
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+                <% if (error) { %>
+                <div style="font-size:18px; color:#cc0000; margin-top:10px"><%= error %></div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
